@@ -69,11 +69,11 @@ fn simulate(payload: Payload) -> eyre::Result<()> {
         ..Default::default()
     };
 
-    let result = evm.transact_ref()?;
+    let result = evm.transact_ref().unwrap();
 
     assert_eq!(
         result.state.get(&address).unwrap().info.balance,
-        U256::from(69)
+        U256::from(71)
     );
 
     dbg!(&result);

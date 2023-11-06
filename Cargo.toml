@@ -7,14 +7,14 @@ edition = "2021"
 
 [dependencies]
 alloy-primitives = { version = "0.3.3", features = ["serde"] }
-revm = { git = "https://github.com/bluealloy/revm" }
+revm = { git = "https://github.com/bluealloy/revm", rev = "e5227c4" }
 
 # Necessary for setting up the TLS connection.
 # 0.11: memcpy is not static
 # 0.10 and before `limits.h` not found
 # "sgx" feature removed in 0.ang 
+# mbedtls = { git = "https://github.com/fortanix/rust-mbedtls", features = ["no_std_deps", "ssl", "x509"]  }
 mbedtls = { version = "0.7", default-features = false, features = ["sgx"] }
-# mbedtls = { git = "https://github.com/fortanix/rust-mbedtls" }
 chrono = "0.4.0"
 
 # Misc
